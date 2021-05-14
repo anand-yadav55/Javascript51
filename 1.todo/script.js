@@ -1,4 +1,4 @@
-let todoItems = [];
+let todoItems = ["wake", "sleep"];
 
 const todoInput = document.querySelector("#todoInput");
 let removeButtons = document.querySelectorAll(".removeBtn");
@@ -8,13 +8,15 @@ function createList() {
   let list = document.createElement("ul");
   todoItems.forEach((ele, idx) => {
     let node = document.createElement("li");
+    let textContainer = document.createElement("span");
     let textNode = document.createTextNode(ele);
     let removeButton = document.createElement("button");
     let removeButtonTextNode = document.createTextNode("Remove it");
     removeButton.setAttribute("class", "removeBtn");
     removeButton.setAttribute("idx", idx);
     removeButton.appendChild(removeButtonTextNode);
-    node.appendChild(textNode);
+    textContainer.appendChild(textNode);
+    node.appendChild(textContainer);
     node.appendChild(removeButton);
     list.appendChild(node);
   });
@@ -42,14 +44,15 @@ function removeTodo() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  renderTodoList();
+  //Adding a new Todo Item
   todoInput.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let formData1 = new FormData(todoInput);
-
-    todoItems.unshift(formData1.get("enterTodo"));
-
-    console.log(todoItems);
+    let todoItem = formData1.get("enterTodo");
+    // todoItem[0] = todoItem[0].toUpperCase();
+    todoItems.unshift(todoItem);
 
     renderTodoList();
   });
