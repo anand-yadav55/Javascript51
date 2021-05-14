@@ -3,6 +3,7 @@ let todoItems = [];
 const todoInput = document.querySelector("#todoInput");
 let removeButtons = document.querySelectorAll(".removeBtn");
 
+//returns a list of todo
 function createList() {
   let list = document.createElement("ul");
   todoItems.forEach((ele, idx) => {
@@ -16,9 +17,7 @@ function createList() {
     node.appendChild(textNode);
     node.appendChild(removeButton);
     list.appendChild(node);
-    removeButton.addEventListener("click", () => console.log("remom"));
   });
-  console.log(list);
   return list;
 }
 
@@ -26,31 +25,32 @@ function createList() {
 function renderTodoList() {
   const todoList = document.querySelector(".todoList");
   todoList.innerHTML = createList().innerHTML;
+  removeTodo();
 }
 
 // To remove the element
-function removeTodo(ele) {
-  //   console.log(ele);
-}
-function addRemoveFunction() {
+
+function removeTodo() {
   removeButtons = document.querySelectorAll(".removeBtn");
 
-  //   removeButtons.forEach((ele) =>
-  //     ele.addEventListener("click", () => console.log(ele))
-  //   );
   for (let i = 0; i < removeButtons.length; i++) {
-    removeButtons[i].addEventListener("click", () => console.log(ele));
+    removeButtons[i].addEventListener("click", () => {
+      todoItems.pop(i);
+      renderTodoList();
+    });
   }
 }
 
-todoInput.addEventListener("submit", (e) => {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  todoInput.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  let formData1 = new FormData(todoInput);
+    let formData1 = new FormData(todoInput);
 
-  todoItems.unshift(formData1.get("enterTodo"));
+    todoItems.unshift(formData1.get("enterTodo"));
 
-  console.log(todoItems);
+    console.log(todoItems);
 
-  renderTodoList();
+    renderTodoList();
+  });
 });
