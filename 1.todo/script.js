@@ -1,4 +1,4 @@
-let todoItems = ["wake", "sleep"];
+let todoItems = [];
 
 const todoInput = document.querySelector("#todoInput");
 let removeButtons = document.querySelectorAll(".removeBtn");
@@ -50,9 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let formData1 = new FormData(todoInput);
     let todoItem = formData1.get("enterTodo");
-    // todoItem[0] = todoItem[0].toUpperCase();
-    todoItems.unshift(todoItem);
-
-    renderTodoList();
+    if (todoItems.indexOf(todoItem) !== -1) {
+      let a = window.confirm("Todo already exists!! Do you still want to add");
+      if (a === true) {
+        todoItems.unshift(todoItem);
+        renderTodoList();
+      }
+      document.querySelector(".enterTodo").value = "";
+    } else {
+      todoItems.unshift(todoItem);
+      renderTodoList();
+      document.querySelector(".enterTodo").value = "";
+    }
   });
 });
