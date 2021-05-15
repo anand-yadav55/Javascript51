@@ -5,16 +5,15 @@ let removeButtons = document.querySelectorAll(".removeBtn");
 
 //returns a list of todo
 function createList() {
-  let list = document.createElement("ul");
+  let list = document.createElement("ol");
   todoItems.forEach((ele, idx) => {
     let node = document.createElement("li");
     let textContainer = document.createElement("span");
     let textNode = document.createTextNode(ele);
-    let removeButton = document.createElement("button");
-    let removeButtonTextNode = document.createTextNode("Remove it");
-    removeButton.setAttribute("class", "removeBtn");
+    let removeButton = document.createElement("i");
+    removeButton.setAttribute("class", "removeBtn fa fa-trash");
     removeButton.setAttribute("idx", idx);
-    removeButton.appendChild(removeButtonTextNode);
+    removeButton.setAttribute("aria-hidden", "true");
     textContainer.appendChild(textNode);
     node.appendChild(textContainer);
     node.appendChild(removeButton);
