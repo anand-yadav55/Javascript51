@@ -4,14 +4,18 @@
   box-sizing: border-box;
   letter-spacing: 0.06rem;
 }
+html {
+  height: 100vh;
+  width: 100vw;
+}
 header {
   width: 100%;
   height: 25vh;
   background-color: rgb(94, 118, 138);
-  font-size: 3rem;
+  font-size: xx-large;
   display: flex;
   align-items: flex-end;
-  padding-left: 100px;
+  padding-left: 20%;
 }
 .container {
   border: 1px ridge;
@@ -67,13 +71,15 @@ input[type="submit"]:active {
   width: 100%;
   height: 70%;
   padding: 5px;
+  padding-top: 10px;
 }
 li {
   justify-content: flex-end;
 }
 .todoList li {
   list-style: none;
-  width: 100%;
+  width: 90%;
+  align-self: center;
   border: 1px solid rgb(104, 166, 221);
   height: 3rem;
   margin-bottom: 2px;
