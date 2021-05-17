@@ -2,6 +2,13 @@ const control = document.querySelector(".control");
 const countdown = document.querySelector(".countdown");
 const countdownValue = 5;
 countdown.innerText = countdownValue;
+function play() {
+  var beepsound = new Audio(
+    "https://www.soundjay.com/button/sounds/beep-01a.mp3"
+  );
+  beepsound.volume = 0.2;
+  beepsound.play();
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   let controlState = 0;
@@ -35,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       control.classList.remove("hide");
       //   controlState = 1;
     }
+    play();
   }
 
   control.addEventListener("click", () => {
