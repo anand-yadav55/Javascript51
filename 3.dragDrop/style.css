@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header {
+  height: 30vh;
+  background-color: aqua;
+}
+main {
+  height: 65vh;
+  display: flex;
+  align-items: center;
+}
+footer {
+  height: 5vh;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  max-width: 800px;
+}
+.box {
+  display: inline-block;
+}
+.empty {
+  height: 100px;
+  width: 100px;
+  background: #ffffff;
+  border: 1px solid black;
+}
+.fill {
+  height: 100px;
+  width: 100px;
+  background: url("https://picsum.photos/100");
+  border: 1px solid black;
+}
